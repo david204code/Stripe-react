@@ -8,8 +8,14 @@ const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
   // reference
   const displaySubmenu = (e) => {
-    console.log('Jesus is Lord!');
-    openSubmenu();
+    // console.log('Jesus is Lord!');
+    // console.log(e.target);
+    const page = e.target.textContent;
+    // get that location
+    const tempBtn = e.target.getBoundingClientRect();
+    const center = (tempBtn.left + tempBtn.right)/2;
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(page, { center, bottom });
   };
 
   return(
